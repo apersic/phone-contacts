@@ -1,28 +1,46 @@
 import { useEffect } from "react";
-import ContactsTable from "./components/ContactsTable"
+import ContactsTable from "./components/ContactsTable";
 import { LoadingComponent } from "../../components/LoadingComponent/LoadingComponent.styles";
 import usePhoneContactsApiConsumer from "./consumers/usePhoneContactsApiConsumer";
 import * as S from "./HomePage.styles";
+import { FieldValues } from "react-hook-form";
+import PhoneContact from "./models/PhoneContact";
 
 const HomePage = () => {
-    const { data, getPhoneContacts, filterData } = usePhoneContactsApiConsumer();
+  const { data, getPhoneContacts, filterData, addContact } = usePhoneContactsApiConsumer();
 
-    useEffect(() => {
-        getPhoneContacts();
-    }, []);
+  useEffect(() => {
+    getPhoneContacts();
+  }, []);
 
-    if (data.filteredContacts) {
-        return (
-            <S.MainLayout>
-                <ContactsTable
-                    data={data.filteredContacts}
-                    onSearch={(query: string) => filterData(query)}
-                />
-            </S.MainLayout>
-        );
-    }
+  const handleOnAddContact = (data: FieldValues) => {
+    addContact(
+      new PhoneContact(
+        data.id || Math.floor(Math.random() * 3000),
+        data.name,
+        data.country || "",
+        data.city,
+        data.avatar,
+        data.address,
+        [],
+        []
+      )
+    );
+  };
 
-    return <LoadingComponent />;
-}
+  if (data.filteredContacts) {
+    return (
+      <S.MainLayout>
+        <ContactsTable
+          data={data.filteredContacts}
+          onSearch={(query: string) => filterData(query)}
+          onAddContact={(data) => handleOnAddContact(data)}
+        />
+      </S.MainLayout>
+    );
+  }
+
+  return <LoadingComponent />;
+};
 
 export default HomePage;
