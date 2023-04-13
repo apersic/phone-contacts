@@ -4,7 +4,7 @@ import { colors } from "../../styles/base/colors";
 export const InputField = styled.div<{ $error?: boolean }>`
     width: 100%;
     border-radius: 4px;
-    background-color: ${colors.grey2};
+    background-color: ${colors.white};
     padding: 4px 8px;
     position: relative;
 

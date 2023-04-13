@@ -10,6 +10,7 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   type?: ButtonType;
+  ariaLabel?: string;
 }
 
 export const Button = ({
@@ -19,6 +20,7 @@ export const Button = ({
   className,
   disabled,
   type = 'button',
+  ariaLabel
 }: ButtonProps) => {
   return (
     <S.Button
@@ -27,6 +29,7 @@ export const Button = ({
       onClick={onClick}
       type={type}
       style={style}
+      aria-label={ariaLabel}
     >
       {label}
     </S.Button>

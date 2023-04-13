@@ -7,7 +7,7 @@ export const Button = styled.button`
     border: 0;
     color: ${colors.white};
     background-color: ${colors.sucess};
-    padding: 16px 24px;
+    padding: 14px 24px;
     fontFamily: "sans-serif",
     font-weight: 'bold',
     font-size: '1.4rem',
@@ -23,6 +23,7 @@ export const Button = styled.button`
     }
 
     ${responsive.phone} {
-        min-width: 100%;
+        min-width: unset;
+        white-space: nowrap
     }
 `;
