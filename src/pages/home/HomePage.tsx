@@ -14,11 +14,12 @@ const HomePage = () => {
   }, []);
 
   const handleOnAddContact = (data: FieldValues) => {
+    console.log(data);
     addContact(
       new PhoneContact(
         data.id || Math.floor(Math.random() * 3000),
         data.name,
-        data.country || "",
+        data.country,
         data.city,
         data.avatar,
         data.address,
