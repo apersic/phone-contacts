@@ -8,6 +8,7 @@ export default function useCountriesApiConsumer() {
   const toast = useToast();
   const countriesService = new CountriesService();
   const [countries, setCountries] = useState(Array<Country>);
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const getCountries = async () => {
     try {
@@ -18,6 +19,7 @@ export default function useCountriesApiConsumer() {
       );
 
       setCountries(mappedData);
+      setSelectedCountry(mappedData[0].getName());
     } catch (e) {
       toast.show({
         message: "There was an error while fetching available countries.",
@@ -30,7 +32,9 @@ export default function useCountriesApiConsumer() {
   return {
     data: {
       countries,
+      selectedCountry,
     },
     getCountries,
+    setSelectedCountry,
   };
 }

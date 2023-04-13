@@ -3,7 +3,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import * as S from "./NewContactForm.styles";
 import { Button } from "../../../components/Button/Button";
 import useCountriesApiConsumer from "../consumers/useCountriesApiConsumer";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { LoadingComponent } from "../../../components/LoadingComponent/LoadingComponent.styles";
 
 interface NewContactFormProps {
@@ -12,8 +12,7 @@ interface NewContactFormProps {
 
 export const NewContactForm = ({ onSubmit }: NewContactFormProps) => {
   const { register, handleSubmit } = useForm();
-  const { data, getCountries } = useCountriesApiConsumer();
-  const [selectedCountry, setSelectedCountry] = useState(data.countries ? data.countries[0] : "");
+  const { data, getCountries, setSelectedCountry } = useCountriesApiConsumer();
 
   useEffect(() => {
     getCountries();
@@ -27,10 +26,10 @@ export const NewContactForm = ({ onSubmit }: NewContactFormProps) => {
     setSelectedCountry(e.target.value);
   };
 
-  const handleOnSubmit = (data: FieldValues) => {
+  const handleOnSubmit = (contact: FieldValues) => {
     const payload = {
-      ...data,
-      conutry: selectedCountry,
+      ...contact,
+      country: data.selectedCountry,
     };
 
     onSubmit(payload);
