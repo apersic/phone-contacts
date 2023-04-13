@@ -1,4 +1,4 @@
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { InputField } from "../../../components/InputField/InputField";
 import * as S from "./ContactsTable.styles";
 import { Button } from "../../../components/Button/Button";
@@ -6,6 +6,7 @@ import usePopup from "../../../common/utils/hooks/usePopup";
 import { NewContactForm } from "./NewContactForm";
 import PhoneContact from "../models/PhoneContact";
 import { FieldValues } from "react-hook-form";
+import Account from "../models/Account";
 
 interface ContactsTableProps {
   data: PhoneContact[];
@@ -21,6 +22,28 @@ export default function ContactsTable({ data, onSearch, onAddContact }: Contacts
     { field: "country", headerName: "Country", width: 130 },
     { field: "city", headerName: "City", width: 130 },
     { field: "address", headerName: "Address", width: 130 },
+    {
+      field: "accounts",
+      headerName: "Accounts",
+      width: 260,
+      sortable: false,
+      valueGetter: (params: GridValueGetterParams) => {
+        const accountsValue = params.row.accounts.map(
+          (account: Account) => `${account.getName()}\n`
+        );
+        return `${accountsValue || ""}`;
+      },
+    },
+    {
+      field: "calls",
+      headerName: "Calls",
+      width: 260,
+      sortable: false,
+      valueGetter: (params: GridValueGetterParams) => {
+        const callsValue = params.row.calls.map((account: Account) => `${account.getName()}\n`);
+        return `${callsValue || ""}`;
+      },
+    },
   ];
 
   const handleOnSearch = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {

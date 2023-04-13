@@ -12,7 +12,7 @@ export const MainLayout = styled.div`
   padding: 64px 120px;
   background-color: ${colors.grey2};
 
-  ${responsive.tablet_portrait} {
+  ${responsive.tablet_landscape} {
     padding: 64px;
   }
 
