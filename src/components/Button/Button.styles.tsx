@@ -22,6 +22,12 @@ export const Button = styled.button`
         border: 1px solid ${colors.white};
     }
 
+    &.secondary {
+        background-color: transparent;
+        border: 1px solid ${colors.sucess};
+        color: ${colors.sucess};
+    }
+
     ${responsive.phone} {
         min-width: unset;
         white-space: nowrap

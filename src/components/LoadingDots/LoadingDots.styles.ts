@@ -6,16 +6,18 @@ const LoadingAnimation = keyframes`
   100% { opacity: 0 }
 `;
 
-export const LoadingDots = styled.div<{$isFixed?: boolean}>`
+export const LoadingDots = styled.div<{ $isFixed?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  
-  ${(props) => props.$isFixed && css`
-    position: absolute;
-    bottom: 76px;
-  `}
+
+  ${(props) =>
+    props.$isFixed &&
+    css`
+      position: absolute;
+      bottom: 76px;
+    `}
 `;
 
 export const Dot = styled.div`

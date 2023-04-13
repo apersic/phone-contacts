@@ -2,15 +2,15 @@ import styled from "styled-components";
 import { colors } from "../../styles/base/colors";
 
 export const InputField = styled.div<{ $error?: boolean }>`
-    width: 100%;
-    border-radius: 4px;
-    background-color: ${colors.white};
-    padding: 4px 8px;
-    position: relative;
+  width: 100%;
+  border-radius: 4px;
+  background-color: ${colors.white};
+  padding: 4px 8px;
+  position: relative;
 
-    ${({ $error }) => {
-        if ($error) {
-            return `
+  ${({ $error }) => {
+    if ($error) {
+      return `
                 border-color: ${colors.error};
 
                 & > span.error {
@@ -22,6 +22,6 @@ export const InputField = styled.div<{ $error?: boolean }>`
                     text-transform: capitalize;
                 }
             `;
-        }
-    }}
+    }
+  }}
 `;
