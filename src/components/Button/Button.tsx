@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 import * as S from "./Button.styles";
 
-type ButtonType = 'submit' | 'reset' | 'button';
+type ButtonType = "submit" | "reset" | "button";
 
 interface ButtonProps {
   onClick?: () => void;
@@ -19,8 +19,8 @@ export const Button = ({
   style,
   className,
   disabled,
-  type = 'button',
-  ariaLabel
+  type = "button",
+  ariaLabel,
 }: ButtonProps) => {
   return (
     <S.Button
