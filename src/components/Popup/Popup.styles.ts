@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../styles/base/colors";
+import { responsive } from "../../styles/utils/responsive";
 
 export const PopupWrapper = styled.div`
   position: fixed;
@@ -13,4 +14,16 @@ export const PopupWrapper = styled.div`
   background: ${colors.popupBackground};
   padding: 0 220px;
   z-index: 5;
+
+  ${responsive.tablet_landscape} {
+    padding: 0 120px;
+  }
+
+  ${responsive.tablet_portrait} {
+    padding: 0 64px;
+  }
+
+  ${responsive.phone} {
+    padding: 0 16px;
+  }
 `;

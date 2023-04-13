@@ -31,6 +31,7 @@ const HomePage = () => {
   if (data.filteredContacts) {
     return (
       <S.MainLayout>
+        <S.PageTitle aria-label="Contacts">Contacts</S.PageTitle>
         <ContactsTable
           data={data.filteredContacts}
           onSearch={(query: string) => filterData(query)}
