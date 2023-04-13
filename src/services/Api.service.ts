@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { showToast } from '../common/utils/hooks/useToast';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { showToast } from "../common/utils/hooks/useToast";
 interface GetParams {
   resource: string;
   params: AxiosRequestConfig;
@@ -39,7 +39,7 @@ export default class ApiService {
   }
 
   async handle404Error() {
-    await showToast(3000, 'Not found!');
+    await showToast(3000, "Not found!");
   }
 
   setResponseInterceptors(): void {
@@ -53,7 +53,7 @@ export default class ApiService {
         } else {
           return Promise.reject(error);
         }
-      },
+      }
     );
   }
 
