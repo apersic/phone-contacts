@@ -39,20 +39,29 @@ export const NewContactForm = ({ onSubmit }: NewContactFormProps) => {
   if (data.countries) {
     return (
       <S.NewContactForm onSubmit={handleSubmit(handleOnSubmit)}>
-        <S.Input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
-        <S.Input {...register("city")} placeholder="City" />
-        <S.Select name="country" onChange={(e) => handleOnSelect(e)}>
+        <S.Input
+          aria-label="name"
+          {...register("name", { required: true, maxLength: 20 })}
+          placeholder="Name"
+        />
+        <S.Input aria-label="city" {...register("city")} placeholder="City" />
+        <S.Select aria-label="country" name="country" onChange={(e) => handleOnSelect(e)}>
           {data.countries.map((country, index) => (
             <option key={index} value={country.getName()}>
               {country.getName()}
             </option>
           ))}
         </S.Select>
-        <S.Input {...register("avatar")} placeholder="Avatar" />
-        <S.Input {...register("address")} placeholder="Address" />
-        <S.Input {...register("accounts")} placeholder="Accounts" />
-        <Button label="Submit" type="submit" />
-        <Button label="Cancel" onClick={() => handleOnClose()} className="secondary" />
+        <S.Input aria-label="avatar" {...register("avatar")} placeholder="Avatar" />
+        <S.Input aria-label="address" {...register("address")} placeholder="Address" />
+        <S.Input aria-label="accounts" {...register("accounts")} placeholder="Accounts" />
+        <Button ariaLabel="submit" label="Submit" type="submit" />
+        <Button
+          ariaLabel="cancel"
+          label="Cancel"
+          onClick={() => handleOnClose()}
+          className="secondary"
+        />
       </S.NewContactForm>
     );
   }
