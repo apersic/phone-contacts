@@ -5,6 +5,9 @@ single-page application to display phone contacts and create new ones.
 ## Description
 The home page žloads a list of contacts from the provided API and lists all the contacts in a table.
 
+## App URL
+App is deployed at this [link](https://64384309c707230fa1c2bc4b--papaya-stroopwafel-468c66.netlify.app/).
+
 ## Available Scripts
 
 In the project directory, you can run:
