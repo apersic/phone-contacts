@@ -3,7 +3,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import * as S from "./NewContactForm.styles";
 import { Button } from "../../../components/Button/Button";
 import useCountriesApiConsumer from "../consumers/useCountriesApiConsumer";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { LoadingComponent } from "../../../components/LoadingComponent/LoadingComponent.styles";
 
 interface NewContactFormProps {
