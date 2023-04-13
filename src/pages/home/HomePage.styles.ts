@@ -20,3 +20,15 @@ export const MainLayout = styled.div`
     padding: 24px 16px;
   }
 `;
+
+export const PageTitle = styled.h1`
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 32px 0;
+  text-align: left;
+
+  ${responsive.tablet_portrait} {
+    font-size: 1.5rem;
+  }
+`;

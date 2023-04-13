@@ -39,6 +39,7 @@ export const NewContactForm = ({ onSubmit }: NewContactFormProps) => {
   if (data.countries) {
     return (
       <S.NewContactForm onSubmit={handleSubmit(handleOnSubmit)}>
+        <S.FormTitle aria-label="Create new contact">Create new contact</S.FormTitle>
         <S.Input
           aria-label="name"
           {...register("name", { required: true, maxLength: 20 })}
@@ -55,13 +56,15 @@ export const NewContactForm = ({ onSubmit }: NewContactFormProps) => {
         <S.Input aria-label="avatar" {...register("avatar")} placeholder="Avatar" />
         <S.Input aria-label="address" {...register("address")} placeholder="Address" />
         <S.Input aria-label="accounts" {...register("accounts")} placeholder="Accounts" />
-        <Button ariaLabel="submit" label="Submit" type="submit" />
-        <Button
-          ariaLabel="cancel"
-          label="Cancel"
-          onClick={() => handleOnClose()}
-          className="secondary"
-        />
+        <S.ButtonGroup>
+          <Button ariaLabel="submit" label="Submit" type="submit" />
+          <Button
+            ariaLabel="cancel"
+            label="Cancel"
+            onClick={() => handleOnClose()}
+            className="secondary"
+          />
+        </S.ButtonGroup>
       </S.NewContactForm>
     );
   }
