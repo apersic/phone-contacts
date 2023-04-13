@@ -44,7 +44,6 @@ export default function usePhoneContactsApiConsumer() {
     const newData: PhoneContact[] = [];
     contacts.forEach((contact: PhoneContact) => {
       if (
-        query === "" ||
         contact.getName().includes(query) ||
         contact.getCountry().includes(query) ||
         contact.getAddress().includes(query) ||
