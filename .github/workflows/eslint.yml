@@ -5,9 +5,9 @@ on:
   # but only for the main branch
   push:
     branches:
-      - main
-    pull_request:
-      types: [opened, reopened]
+      - [main, dev]
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   run-linters:
